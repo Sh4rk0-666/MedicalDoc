@@ -1,0 +1,85 @@
+﻿<style>
+
+    .font-text-16 {
+        font-size: 16px !important;
+    }
+
+    #singout:hover {
+        background-color: #B30000 !important
+    }
+    /* Estilos para el botón circular */
+    .circle-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #FFFFFF !important;
+        transition: background-color 0.3s ease;
+    }
+
+        .circle-button i {
+            color: #B30000 !important;
+        }
+
+        .circle-button:hover {
+            background-color: #0082c8;
+
+        }
+
+        /* Alinea el icono en el centro del botón circular */
+        .circle-button i {
+            margin: 0;
+        }
+
+    /* Añade margen al botón dentro del menú */
+    .dropdown-menu .circle-button {
+        margin: 10px; /* Ajusta el margen según tus necesidades */
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: #0082c8 !important;
+    }
+    /* Oculta la flecha de despliegue */
+    .circle-button::after {
+        display: none;
+    }
+
+
+</style>
+
+<!-- Navbar -->
+<nav class="main-header navbar wf-bg-blue  navbar-expand navbar-light">
+
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class=" fas fa-bars"></i></a>
+        </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle circle-button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right font-text-16 mt-2" aria-labelledby="navbarDropdown">
+
+
+                <a class="dropdown-item text-center"><span class="gray-color">@User.Identity.Name</span></a>
+
+                <div class="dropdown-divider"></div>
+
+                <form id="logoff" asp-action="LogOff" asp-controller="Account" method="post">
+                    <button type="submit" id="singout" class="dropdown-item text-center">Sign Out</button>
+
+                </form>
+            </div>
+        </li>
+    </ul>
+</nav>
+<!-- /.navbar -->

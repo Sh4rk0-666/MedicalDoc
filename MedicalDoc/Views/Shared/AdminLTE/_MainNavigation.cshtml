@@ -1,0 +1,60 @@
+﻿<style>
+    .nav-link.active {
+        background-color: #B30000 !important;
+    }
+</style>
+
+<aside class="main-sidebar bg-blue elevation-4">
+    <a  class="brand-link text-center">
+        <img src="~/images/medicaldoc-logo.png" class="brand-image">
+    </a>
+    <div class="sidebar">
+
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column white-text font-size" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a asp-controller="Patients" asp-action="Index" class="nav-link  @Url.MakeActiveClass("patients","index")">
+                        <i class="fas fa-hospital-user"></i>
+                        <p class="ml-1">
+                            Patients
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Scheduled" asp-action="Index" class="nav-link @Url.MakeActiveClass("scheduled","index")">
+                        <i class="fas fa-calendar-alt"></i>                        
+                        <p class="ml-1">
+                            Scheduled
+                        </p>
+                    </a>
+                </li>                
+                
+                
+                <li class="nav-item">
+                    <a asp-controller="Insurances" asp-action="Index" class="nav-link @Url.MakeActiveClass("insurances","index")">
+                        <i class="fas fa-heartbeat"></i>                        
+                        <p class="ml-1">
+                            Health Insurance
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Records" asp-action="Index" class="nav-link @Url.MakeActiveClass("records","index")">
+                        <i class="fas fa-clipboard"></i>                        
+                        <p class="ml-1">
+                            Records
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>

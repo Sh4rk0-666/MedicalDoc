@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+    var contenidoArchivo = Model.ToString();
+}
+
+<section class="content-header">
+    <h1>Viewing Medical Record</h1>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <pre>@Html.Raw(contenidoArchivo)</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

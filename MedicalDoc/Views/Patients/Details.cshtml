@@ -1,0 +1,121 @@
+﻿@model Patient 
+
+@{
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Patient Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Name:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.FirstName @Model.LastName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Date of Birth:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.DateOfBirth?.ToString("yyyy-MM-dd")</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Gender:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.Gender</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Address:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.Address</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Phone Number:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.PhoneNumber</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">Email:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="form-control-plaintext">@Model.Email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Prescribed Medications</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model.PrescribedMedications.Any())
+                    {
+                        foreach (var medication in Model.PrescribedMedications)
+                        {
+                            <div class="mb-3">
+                                <h5>@medication.MedicationName</h5>
+                                <p><strong>Dosage:</strong> @medication.Dosage</p>
+                                <p><strong>Frequency:</strong> @medication.Frequency</p>
+                                <p><strong>Start Date:</strong> @medication.StartDate?.ToString("yyyy-MM-dd")</p>
+                                <p><strong>End Date:</strong> @medication.EndDate?.ToString("yyyy-MM-dd")</p>
+                                <p><strong>Usage Instructions:</strong> @medication.UsageInstructions</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No prescribed medications for this patient.</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- ola! q hace?-->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Medical History</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model.MedicalHistories.Any())
+                    {
+                        foreach (var history in Model.MedicalHistories)
+                        {
+                            <div class="mb-3">
+                                <p><strong>Visit Date:</strong> @history.VisitDate?.ToString("yyyy-MM-dd")</p>
+                                <p><strong>Diagnosis:</strong> @history.Diagnosis</p>
+                                <p><strong>Treatment:</strong> @history.Treatment</p>
+                                <p><strong>Doctor Notes:</strong> @history.DoctorNotes</p>
+                                <p><strong>Test Results:</strong> @history.TestResults</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No medical history available for this patient.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

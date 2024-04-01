@@ -1,0 +1,30 @@
+﻿ 
+<style>
+    #logoff{
+        cursor:pointer
+    }
+</style>
+    <!-- Control Sidebar -->
+<aside id="rigthbar" class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div id="slide" class="p-3">
+        <h5>Hi, @User.Identity.Name</h5>
+
+        <div class="mb-4">
+            <label class="switch">
+                <input id="darkmode" type="checkbox" />
+                <span class="slider round">
+                </span>
+            </label>
+            <i class="fa fa-moon"></i>
+
+        </div>
+
+         <form id="logoff" asp-action="LogOff" asp-controller="Account" method="post">
+            <button type="submit" class="btn btn-block btn-dark">Sign out</button>
+        </form>
+    </div>
+
+</aside>
+
+<!-- /.control-sidebar -->

@@ -1,0 +1,99 @@
+﻿@model UserViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> MedicalDoc | Log in</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <partial name="AdminLTE/_Styles" />
+</head>
+
+<style>
+    .logo-img img {
+        width: 315px;
+        height:75px
+    }
+</style>
+
+<body>
+    <div id="login" class="login-page">
+
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+
+                <div class="login-logo">
+
+                    <div class="logo-img">
+                        <a><img src="~/images/medical-login.png" /></a>
+                    </div>
+                </div>
+
+                <form method="post">
+
+                    <div class="input-group mb-3">
+
+                        <input asp-for="Username" name="Username" type="text" class="form-control" autocomplete="off" placeholder="Username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                   
+                    <div class="input-group mb-3">
+                    
+                        <input asp-for="Password" name="Password" type="password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    
+
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-12">
+                            <button type="submit" class="btn bg-blue btn-block text-white">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    @if (Model.success != true)
+                    {
+                        <div class="form-group danger-text p-3">
+                            <div class="alert alert-danger" role="alert">
+                                @Model.message
+                            </div>
+                        </div>
+                    }
+
+                </form>
+
+
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <partial name="AdminLTE/_Scripts" />
+
+    <script type="text/javascript">
+
+      
+    </script>
+
+</body>
+</html>
+

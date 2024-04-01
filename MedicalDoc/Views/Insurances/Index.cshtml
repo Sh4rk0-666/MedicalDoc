@@ -1,0 +1,72 @@
+﻿@model List<Healthinsurance>
+@{
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Health Insurance</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item text-pforange">Health Insurance</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Active Insurance Policies</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Insurance Name</th>
+                                    <th>Policy Number</th>
+                                    <th>Policy Holder Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Gender</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Valid From</th>
+                                    <th>Valid To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var insurance in Model)
+                                {
+                                    <tr>
+                                        <td>@insurance.InsuranceName</td>
+                                        <td>@insurance.PolicyNumber</td>
+                                        <td>@insurance.PolicyHolderFirstName @insurance.PolicyHolderLastName</td>
+                                        <td>@insurance.PolicyHolderDateOfBirth.ToString("yyyy-MM-dd")</td>
+                                        <td>@insurance.PolicyHolderGender</td>
+                                        <td>@insurance.PolicyHolderAddress</td>
+                                        <td>@insurance.PolicyHolderPhoneNumber</td>
+                                        <td>@insurance.PolicyHolderEmail</td>
+                                        <td>@insurance.ValidFrom.ToString("yyyy-MM-dd")</td>
+                                        <td>@(insurance.ValidTo.HasValue ? insurance.ValidTo.Value.ToString("yyyy-MM-dd") : "N/A")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
